@@ -1,12 +1,11 @@
 #describe how **parallelism** differs from **concurrency**.
 
+Wir betrachten mehrere Handlungsstränge in einem System. Bei Parallelität laufen mehrere Handlungsstränge zur selben Zeit ab. Parallelität bedeutet hier, dass beispielsweise vier tasks (aufgaben) gleichzeitig von vier CPUs eines Rechners abgearbeitet werden. Das heißt, dass zu einem festen Zeitpunkt mehrere tasks bearbeitet werden. Bei Concurrency (Nebenläufigkeit) werden auch mehrere Handlungstränge betrachtet in denen Aufgaben erledigt werden. Hier werden verschiedene Aufgaben allerdings nicht ausschließlich zur gleichen Zeit abgearbeitet sondern teilweise auch nacheinander. Man kann sich Concurrency so vorstellen, das man nur eine CPU nutzt, welche verschiedene tasks abarbeitet. Zwischen den tasks schaltet die CPU allerdings um und erledigt die tasks nicht zur gleichen zeit, da sie zu einem festen Zeitpunkt immer nur an einem task arbeiten kann. Dabei wird ein sogenannter job sheduler verwendet, der zwischen des tasks hin und her schaltet. Parallelität ist also eine Teilmenge von Concurreny. Das heißt jedes System, welches parallel ausgeführt wird ist auch concurrent aber nicht jedes system, welches concurrent ausgeführt wird ist auch parallel.
+
 #what is **fork-join parallelism**?
+
+Der fork-join Parallelismus ist das Programmiermodell von OpenMP. Zu Beginn läuft nur der Masterthread. Zu einem bestimmten Zeitpunkt erzeugt dieser Masterthread mehrere Threads, welche für eine bestimmte Zeit parallel zusätzlich zum Masterthread laufen. Diese Abschnitte im Programm werden auch parallele Regionen genannt. Am Ende einer parallelen Region beginnt eine sequenzielle Phase, in welcher ausschließlich der Masterthread weiterläuft. Auf diese sequenzielle Phase kann dann wieder eine parallele Region folgen, welche wieder von einer sequenziellen Phase gefolgt wird. In einer parallelen Region können wiederum parallele Regionen aufgemacht werden. In diesem Fall spricht man von "Nested parallel regions". Dieser Ablauf erinnert an eine Verzweigung (symbolisiert die parallele Region mit mehreren threads), welche durch ein Join wieder zusammengeführt wird. Daher die Bezeichnung "Fork-Join Parallelism".
 
 #**read chapter 1** from Computer Systems: A Programmer's Perspective. Discuss one thing you find interesting.
 
 #read the paper **There's plenty of room at the Top: What will drive computer performance after Moore's law?**. Explain in detail the figure **Performance gains after Moore's law ends.** 
-
-
-
-
-test test
