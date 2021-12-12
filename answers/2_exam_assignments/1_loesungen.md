@@ -53,11 +53,11 @@ Die Idee ist es aus der parallelen Region herauszuspringen. Dazu wird eine eine 
 
 4. Wenn man den scheduler auf static abändert, liefert das Programm immer den kleinsten Wert. Alternativ siehe continue_hack_min_solution_lock oder continue_hack_min_solution_atomic.cpp.
 
-5. Explain in your own words how std::atomic::compare_exchange_weak work.
-Die Eingabewerte für die atomare Funktion std::atomic::compare_exchange_weak lauten (T& expected, T desired).
-Diese Funktion kann auf einer atomare Variable aufgerufen werden. Der Funktion wird die Variable "expected" als Referenz übergeben, d.h. innerhalb der Operation kann diese Variable atomar verändert werden. Außerdem wird eine weitere Variable, hier "desired" genannt übergeben, welche die Variable überschreibt auf die die Funktion angewendet wird.
-Wir betrachten die Anwendung der Funktion auf die Variable var1:
-var1.compare_exchange_weak lauten (T& expected, T desired)
+5. Explain in your own words how std::atomic::compare_exchange_weak work.  
+Die Eingabewerte für die atomare Funktion std::atomic::compare_exchange_weak lauten (T& expected, T desired).  
+Diese Funktion kann auf einer atomare Variable aufgerufen werden. Der Funktion wird die Variable "expected" als Referenz übergeben, d.h. innerhalb der Operation kann diese Variable atomar verändert werden. Außerdem wird eine weitere Variable, hier "desired" genannt übergeben, welche die Variable überschreibt auf die die Funktion angewendet wird.  
+Wir betrachten die Anwendung der Funktion auf die Variable var1:  
+var1.compare_exchange_weak lauten (T& expected, T desired)  
 Wenn wir diese Funktion anwenden, wird der Wert der Variable var1 auf welche die Funktion angewendet wird verglichen mit dem Wert der Variable "expected". Wenn die Werte übereinstimmen, so wird var1 mit dem Wert in desired überschrieben und true zurück gegeben. Wenn die Werte nicht übereinstimmen, so wird der Wert von "expected" mit dem Wert von var1 überschrieben und false zurück gegeben.
 
 
