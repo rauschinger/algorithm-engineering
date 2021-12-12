@@ -22,3 +22,23 @@ SIMD-fähige Prozessoren werden vorallem bei der Verarbeitung von Bild-, Ton- un
 
 # read the paper **There's plenty of room at the Top: What will drive computer performance after Moore's law?**. Explain in detail the figure **Performance gains after Moore's law ends.**
 Moore's Law beschreibt, dass sich die Anzahl an Transistoren auf einem Computerchip alle zwei Jahre verdoppelt. Durch dieses Gesetz erhält man eine starke Verbessserung der Rechenleistung. Dieses Gesetz hatte lange Zeit Gültigkeit, ist aber mittlweile an ihre physikalsichen Grenzen geraten. Daher spricht man auch von einer post-Moore Ära, in welcher wir uns mittlerweile befinden. Die Verbesserung an Rechenleistung erlagen wir, wie in der Abbildung dargestellt, durch die drei Faktoren Software, Algorithmen und Hardware Architektur. Diese Faktoren befinden sich an der Spitze der Rechnertechnologie ("The Top"). Die Verbesserung der Anzahl der Transistoren pro Computerchip hingegen befinden sich am Boden der Rechnertechnologie ("The Bottom"). Die drei Faktoren werden in der Abbildung bildlich veranschaulicht, beschrieben und mit Beispielen erläutert. Zu Software zählt das "Software perfomance engineering". Darunter versteht man, dass man die Software restrukturiert und effizienter, im Hinblick auf die Laufzeit des Programms, programmiert. Die Software wird an die Hardware des Systems angepasst und die Vorteile von parallelen Prozessen und von Vektorisierungen werden genutzt. Ein weiterer Faktor sind Algorithmen und im speziellen das Nutzen von neuen, besseren Algorithmen, um auch neue Problemstellungen lösen zu können. Der dritte Faktor ist die Hardware Architektur. Hier werden komplexere Prozessor Kerne durch simplere Kerne ersetzt, welche weniger Transistoren benötigen. Diese Modernisierung wird auch als "Hardware streamlining" bezeichnet.
+
+
+# Coding Warmup
+
+Times from OpenMP versions for integration of pi:
+
+1 thread: pi with 100000000 steps is 3.1415926535904264 in 0.600584 seconds
+
+4 threads: pi with 100000000 steps is 3.1415926535902168 in 0.162669 seconds
+
+8 threads: pi with 100000000 steps is 3.1415926535896137 in 0.0824038 seconds
+
+16 threads: pi with 100000000 steps is 3.1415926535897749 in 0.0724681 seconds
+
+32 threads: pi with 100000000 steps is 3.141592653589774 in 0.0640428 seconds
+
+64 threads: pi with 100000000 steps is 3.141592653589794 in 0.0641696 seconds
+
+--> je mehr threads desto schneller allerdings ist das programm bei 32 und 64 threads etwa gleich schnell. Das heißt ab bestimmter threadanzahl bekommen wir keinen weiteren speedup.
+
