@@ -41,12 +41,10 @@ Beispiele für Reduktionsoperationen sind Addition, Subtraktion, Multiplikation,
 
 # What is the purpose of a barrier in parallel computing?
 
-Das Ziel ist es Threads zu synchronisieren.
+Syntax: #pragma omp barrier
 
-
-
-
-
+Das Ziel ist es Threads zu synchronisieren. Wenn in der parallelen Region eine Barriere gesetzt wurde, dann müssen alle Threads an dieser Barriere warten bis jeder Thread die Barriere erreicht hat. Erst wenn alle Threads die Barriere erreicht haben fahren die Threads mit ihrer Arbeit fort.    
+Außerdem gibt es in OpenMP implizite Barrieren. Dazu zählen die for, sections, single und parallel Konstrukte. Bei diesen Kontrukten muss die barrier Direktive nicht mit angegeben werden, da sie implizit in diesen Konstrukten angewendet wird. Beispielsweise arbeiten die Threads bei einer for-Schleife erst dann weiter, wenn alle Threads ihre Arbeit in der for-Schleife abgearbeitet haben. Diese impliziten Barrieren können mithilfe der "nowait" Klausel aufgehoben werden. Das ist allerdings nicht bei dem Konstrukt "parallel" möglich.
 
 
 
@@ -54,26 +52,23 @@ Das Ziel ist es Threads zu synchronisieren.
 
 # Explain the differences between the library routines omp_get_num_threads(), omp_get_num_procs() and omp_get_max_threads().
 
+omp_get_num_threads(): Diese Routine gibt an, wie viele Threads in der parallelen Region arbeiten, in welcher die Routine aufgerufen wurde. Führt man omp_get_num_threads() außerhalb einer parallelen Region aus, so wird 1 zurückgegeben. Dies entspricht dem Fork-Join-Parallelismus von OpenMP. 
 
 
+omp_get_num_procs(): Diese Routine gibt die Anzahl der zur Verfügung stehenden logischen Kerne zurück. Logische Kerne unterscheiden sich von physischen Kernen. Wenn wir 4 physische Kerne zur Verfügung haben und die Technology des Hyperthreading nutzen können, dann verhält sich ein physischer Kern wie zwei logische Kerne. Somit haben wir in diesem Fall bei 4 physichen Kernen 8 logische Kerne. Als Default-Wert wird ein Thread pro logischem Kern gestartet.
 
 
-
-
+omp_get_max_threads(): Diese Routine gibt die maximale Anzahl der Threads in einer parallelen Region zurück. Das heißt, dass diese Routine den Wert zurück gibt, welchen man durch die Routine omp_set_num_threads(int) gesetzt hat oder sie gibt den Wert zurück, welcher von der Hardware maximal möglich ist. Hat man beispielsweiße einen Rechner mit 16 Kernen mit Hyperthreading, dann würde omp_get_max_threads() 32 zurückgeben.
 
 
 
 # Clarify how the storage attributes private and firstprivate differ from each other.
 
 
+Variablen die außerhalb einer parallelen Region deklariert werden sind per default shared Variablen. Mithilfe von storage Attributen kann gesteuert werden wie die Variablen, die außerhalb der parallelen Region angelegt wurden, in einer parallelen Region behandelt werden. Dabei gibt es die drei storage Attribute shared, private und firstprivate. Shared ist der default-Wert und bedeutet, dass die Variable von den verschiedenen Threads geteilt wird. Gibt man einer Variable das Attribut privat, so wird eine nicht-initialsierte Kopie der Variable für jeden Thread erstellt. Jeder Thread arbeitet dann auf seiner nicht-initialisierten Kopie der Variable. Da der Wert der Variable nicht-initialsiert ist, ist der Wert der Variable in der parallelen Region für jeden Thread in vielen Fällen 0, könnte aber auch eine zufällige Zahl sein.
 
 
-
-
-
-
-
-
+Wird eine Variable mit dem firstprivate Attribut versehen, so erhält jeder Thread eine initialiserte Kopie der Variable. Für jeden Thread ist die Variable lokal und eine Kopie der ursprünglichen Variable. Das heißt jeder Thread hat eine Kopie der Variable mit dem Wert den die Variable außerhalb der parallen Region hat und erhält nicht den Wert 0 oder einen zufälligen Wert, wie im Fall des Attributs privat.
 
 
 # Do the coding warmup on slide 18. Write in pseudo code how the computation of π can be parallelized with simple threads.
