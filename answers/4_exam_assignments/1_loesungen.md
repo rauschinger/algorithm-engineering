@@ -32,6 +32,8 @@ Der Große Vorteil hier ist, dass der sequenzielle Teil dieses Vorgehens nur die
 ![multithreaded_merging](C:\Users\rausc\Desktop\algorithm engineering\answers\4_exam_assignments\multithreaded_merging.png)
 
 
+![multithreaded_merging](https://user-images.githubusercontent.com/46648200/146038116-f83e921c-1c29-4a96-8e75-333e7b2199b6.png)
+
 # Do the coding warmup on slide 17.
 
 
