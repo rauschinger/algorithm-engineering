@@ -29,7 +29,7 @@ Ausgangspunkt des Merging sind zwei sortierte Teilarrays. Von dem größeren Tei
 Das gleiche können wir für die entstandenen Teilarrays machen, welche die Elemente enthalten die größer als der Median sind. Dadurch bekommen wir unabhängige merges, welche in mehreren Threads parallel berechnet werden können.
 Der Große Vorteil hier ist, dass der sequenzielle Teil dieses Vorgehens nur die Bestimmung des Medians ist, welcher nur ein Look-Up ist, da der Teilarray sortiert ist und die binäre Suche. Das restliche Vorgehen besteht aus dem weiteren Aufteilen der Arrays auf verschiedene Threads welche dann rekursiv die Arbeit fortsetzen. 
 
-![Alt-Text](C:\Users\rausc\Desktop\algorithm engineering\answers\4_exam_assignments\multithreaded_merging.png)
+![multithreaded_merging](C:\Users\rausc\Desktop\algorithm engineering\answers\4_exam_assignments\multithreaded_merging.png)
 
 
 # Do the coding warmup on slide 17.
