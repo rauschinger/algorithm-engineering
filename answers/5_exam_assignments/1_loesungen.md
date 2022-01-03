@@ -1,3 +1,7 @@
+Inhalt:
+
+einführung in cmake (programmierwerkzeug zum erstellen und entwickeln von software), catch2 (testen), CPack (verpacken), bottleneck fixing (profiling)
+
 # What is CMake?
 
 CMake ist eine Skriptsprache mit welcher man build files erstellen kann. Cmake funktioniert auf Linux, Mac und Windows Betriebssystemen.
@@ -23,8 +27,6 @@ emfehlung nur api funktionen zu testen
 
 von anfang an tests einbauen
 
-
-
 vorallem interfaces testen und randfälle
 
-tests mittels cathc 
+tests mittels catch
