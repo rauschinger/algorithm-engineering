@@ -1,2 +1,2 @@
 # algorithm-engineering
-git repository für algorithm engineering
+git repository für die exam assignments
