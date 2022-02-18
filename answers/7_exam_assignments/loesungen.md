@@ -64,4 +64,3 @@ __m256i: vektor mit signierten oder unsignierten integer zahlen
 Beachte: bei _256i weiß man nicht welche Form von integer-werten in dem vektor steht. Die operation mit dem vektore entscheidet, welche form von integer-werten in dem vektor steht. Möglich sind hier beispielsweise 16 16-bit short zahlen, 8 32-bit integer zahlen oder 4 64-bit long zahlen.  
 
 
-
