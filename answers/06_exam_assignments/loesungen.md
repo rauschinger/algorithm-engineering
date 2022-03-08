@@ -42,7 +42,7 @@ Wir haben gesehen dass code oft schneller ist, wenn die zu ladenden daten zusamm
 
 ## Name some characteristics of the instructions sets: SSE, AVX(2) and AVX-512.  
 
-TODO: wie groß sind die vektoren, wie heißen die register, was sind die neuesten was sind die ältesten? instruktuonssäöze voneinander abgrenzen.  
+TODO: wie groß sind die vektoren, wie heißen die register, was sind die neuesten was sind die ältesten? instruktuonssätze voneinander abgrenzen.  
 
 SIMD (single instruction-multiple data) entspricht Vektorinstuktion. Mainstream Vektorinstruktionen gibt es im cpu bereich seit 1998.  
 Es gibt folgende Vektorinstruktionssätze auf Intel CPUs:  
@@ -52,7 +52,7 @@ AVX-512 kann mit Vektoren der größe 512 bit rechnen, d.h. 16 floats oder 8 dou
     --> 1 float = 4 byte = 32 bit und 16*32 = 512  
     --> 1 double = 8 byte = 64 bit und 8*64 = 512  
 Die Namen der Register die für die Instruktionen verwendet werden sind bei der SSE-SSE4.2 xmm0-xmm15, bei AVX, AVX2 ymm0 - ymm15 und bei AVX-512 zmm0 - zmm31. xmm0-xmm15 heißt es werden 16 Register angesprochen. Das x bei xmm0 - xmm15 von dem SSE Vektorinstuktionssatz steht für 128 bit, y bei AVX und AVX2 für 256 bit und z bei AVX-512 für 512 bit.  
-Die instruktionen sind rückwärtskompatibel, d.h. Code der AVX2 oder SSE verwendet kann auf AVX-512 CPUs laufen. Wenn man AVX2 Instruktionen auf einer AVX-512 CPU verwendet, nutzt man nicht das komplette Register. Am weitesten verbreitet ist AVX2.  
+Die Instruktionen sind rückwärtskompatibel, d.h. Code der AVX2 oder SSE verwendet kann auf AVX-512 CPUs laufen. Wenn man AVX2 Instruktionen auf einer AVX-512 CPU verwendet, nutzt man nicht das komplette Register. Am weitesten verbreitet ist AVX2.  
 Wir wollen hier nur schauen dass der compiler selber die besten Instruktionen nutzt.  
 
 
