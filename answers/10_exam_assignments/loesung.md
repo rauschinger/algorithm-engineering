@@ -1,11 +1,14 @@
-Name and explain some useful compiler flags during
-development.
+# Inhalt: Debugging and Profiling
+ 
+
+# Exam Assignments 
 
 
-How could Intel oneAPI help you write better
-programs?
+
+## Name and explain some useful compiler flags during development.
 
 
-What can we learn from the following quote?
-Premature optimization is the root of all evil (Donald
-Knuth).
+## How could Intel oneAPI help you write better programs?
+
+
+## What can we learn from the following quote? Premature optimization is the root of all evil (Donald Knuth).
