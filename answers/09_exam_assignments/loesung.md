@@ -40,6 +40,13 @@ Bei Caches gibt es zwei verschiedene store Operationen. Beim normalen Speichern 
 
 ## Describe a typical cache hierarchy used in Intel CPUs.
 
+Intel Prozessoren bestehen aus einer Verknüpfung des Hauptspeichers mit dem L3 Cache, welcher sich im Prozessor Paket befindet. Das Prozessor Paket besteht aus mehreren Kernen und dem L3 Cache, welcher von allen Kernen geteilt wird. Ein Kern besteht aus dem L2 Cache, L1 d-Cache, L1 i-Cache und den Registern. Der L2, L1 Cache und die Register sind privater Speicher für jeden Kern und werden nicht mit den anderen Kernen geteilt. Beim Intel Core i7 hat der L1 d-Cache eine Größe von 32KB, der L1 i-Cache 32KB, der L2 Cache 256 KB und der L3 Cache 8 MB. Zwischen den verschiedenen Cache-Leveln werden Schreib- und Leseoperationen ausgeführt. Um auf die kleinen Caches (beispielsweise den L1 und L2 Cache) zuzugreifen benötigt man deutlich weniger Zeit als wenn man auf den L3 Cache oder den Hauptspeicher zugreigen möchte. Beim L1 Cache liegt die Zugriffszeit bei 4 Zyklen, beim L2 Cache bei 10 Zyklen und beim Hauptspeicher bei 40-75 Zyklen. Eine Cacheline hat in allen Caches eine Größe von 64 Byte.
+
 
 
 ## What are cache conflicts?
+
+Ein Cache ist im wesentlichen eine Hardware Hash Tabelle. Damit ergeben sich die Probleme die auch bei Hashtabellen vorkommen.  
+Wenn wir eine Cacheline in ein Bucket einfügen wollen, wobei das Bucket aber voll ist, so muss zuerst eine Cacheline aus dem Bucket entfernt werden um Platz zu schaffen. Unter dieser Situation verstehen wir einen Cache Konflikt.  
+Das entfernen von Cachlines aus dem Cache kann zu Problemen führen, wie beispielsweise dem Cache Miss. Cache Miss bedeutet, dass wir auf ein Element im Speicher zugreifen wollen, welches wir zuvor aus Kapazitätsgründen aus dem Cache geworfen haben. In dem Fall müsste die gebrauchte Cacheline erneut aus dem Hauptspeicher geladen werden.
+
