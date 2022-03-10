@@ -38,5 +38,19 @@ Der Große Vorteil hier ist, dass der sequenzielle Teil dieses Vorgehens nur die
 
 
 
+Atomarität:  
+
+Etwas ist atomar, wenn es nicht in kleinere Teile aufgeteilt werden kann. Wenn Threads keine atomaren Lese- und Schreibvorgänge verwenden, um
+Daten zu teilen, haben wir immer noch ein Problem.
+Nehmen wir ein Programm mit zwei Threads. Der eine verarbeitet eine Liste von Dateien und erhöht jedes Mal einen Zähler, wenn er die Arbeit an einer Liste
+beendet. Der andere verwaltet die Benutzeroberfläche und liest regelmäßig den Zähler aus, um einen Fortschrittsbalken zu aktualisieren. Wenn dieser Zähler eine
+64-Bit-Ganzzahl ist, können wir auf 32-Bit-Rechnern nicht atomar auf ihn zugreifen, da wir zwei Lade- oder Speicheroperationen benötigen, um den gesamten Wert zu lesen oder zu schreiben. Wenn wir besonders viel Pech haben, könnte der erste Thread halb mit dem Schreiben des Zählers fertig sein, wenn der zweite Thread ihn liest und Müll empfängt. Diese unglücklichen Fälle werden zerrissene Lese- und Schreibvorgänge genannt. Wenn die Lese- und Schreibvorgänge auf den Zähler jedoch atomar sind,
+verschwindet unser Problem. Wir sehen, dass die Atomisierung im Vergleich zu den Schwierigkeiten, die richtige Reihenfolge festzulegen, ziemlich
+einfach ist: Es muss nur sichergestellt werden, dass alle Variablen, die für die Thread-Synchronisation verwendet werden, nicht größer sind als die CPU-Wortgröße.
+
+
+
+
+
 
 
