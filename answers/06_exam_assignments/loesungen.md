@@ -41,8 +41,7 @@ Wir haben gesehen dass code oft schneller ist, wenn die zu ladenden daten zusamm
 # Exam Assignments  
 
 ## Name some characteristics of the instructions sets: SSE, AVX(2) and AVX-512.  
-
-TODO: wie groß sind die vektoren, wie heißen die register, was sind die neuesten was sind die ältesten? instruktuonssätze voneinander abgrenzen.  
+  
 
 SIMD (single instruction-multiple data) entspricht Vektorinstuktion. Mainstream Vektorinstruktionen gibt es im cpu bereich seit 1998.  
 Es gibt folgende Vektorinstruktionssätze auf Intel CPUs:  
